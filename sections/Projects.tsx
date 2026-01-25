@@ -1,4 +1,7 @@
+"use client";
+
 import { projects } from "@/data/projects";
+import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
@@ -12,8 +15,10 @@ export default function Projects() {
 
       <div className="grid md:grid-cols-2 gap-8">
         {projects.map((project) => (
-          <div
+          <motion.div
             key={project.title}
+            whileHover={{ y: -6 }}
+            transition={{ type: "spring", stiffness: 200 }}
             className="border border-gray-800 rounded-2xl p-6 hover:border-blue-500 transition"
           >
             <h3 className="text-xl font-semibold mb-2">
@@ -48,7 +53,7 @@ export default function Projects() {
             >
               View on GitHub →
             </a>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
