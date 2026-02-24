@@ -13,16 +13,30 @@ export default function About() {
 
         <div className="text-gray-300 text-lg leading-relaxed space-y-6">
           <p>
-            I’m a Computer Science postgraduate with a strong focus on backend
-            engineering, cloud infrastructure, and secure system design.
+            I’m Abhishek Shekhawat, a Computer Science postgraduate based in 
+            <span className="text-white font-medium"> Noida, Uttar Pradesh</span>. 
+            I have a strong foundation in programming, backend development, 
+            and system design, with a focus on building scalable and efficient applications.
           </p>
+
           <p>
-            My work spans API development, AI-assisted platforms, and
-            authentication systems such as SSO and passwordless login.
+            I enjoy solving complex problems through clean, maintainable code.
+            My experience includes designing REST APIs, working with databases,
+            building full-stack applications, and developing intelligent systems.
+            I’m comfortable working across the stack, but my core strength lies in
+            backend logic and architecture.
           </p>
+
           <p>
-            I actively explore research topics in identity management,
-            Zero Trust security, and continuous authentication mechanisms.
+            Beyond development, I have a strong interest in cloud computing,
+            modern authentication systems, and performance-oriented design.
+            I continuously refine my skills through hands-on projects,
+            research work, and solving data structure and algorithm challenges.
+          </p>
+
+          <p>
+            I am driven by curiosity and the desire to build systems that are
+            reliable, secure, and production-ready — not just functional.
           </p>
         </div>
       </SectionWrapper>

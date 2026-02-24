@@ -4,6 +4,10 @@ export const skills = [
     items: ["Python", "Flask", "FastAPI", "REST APIs", "Microservices"],
   },
   {
+    category: "Frontend Development",
+    items: ["React.js", "Next.js", "Tailwind CSS"],
+  },
+  {
     category: "Cloud & DevOps",
     items: ["AWS (EC2, S3, IAM, RDS)", "Docker", "GitHub Actions"],
   },
@@ -17,6 +21,6 @@ export const skills = [
   },
   {
     category: "Databases",
-    items: ["PostgreSQL", "SQLAlchemy"],
+    items: ["PostgreSQL", "SQL", "MongoDB (NoSQL)"],
   },
 ];

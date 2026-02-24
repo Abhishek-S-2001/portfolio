@@ -18,32 +18,32 @@ export default function Contact() {
         <p>
           📧 Email:{" "}
           <a
-            href="mailto:your.email@gmail.com"
+            href="mailto:abhishek.shekhawat.1920@gmail.com"
             className="text-blue-400 hover:underline"
           >
-            your.email@gmail.com
+            abhishek.shekhawat.1920@gmail.com
           </a>
         </p>
 
         <p>
           💼 LinkedIn:{" "}
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://linkedin.com/in/abhishek-shekhawat"
             target="_blank"
             className="text-blue-400 hover:underline"
           >
-            linkedin.com/in/yourusername
+            linkedin.com/in/abhishek-shekhawat
           </a>
         </p>
 
         <p>
           💻 GitHub:{" "}
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/Abhishek-S-2001"
             target="_blank"
             className="text-blue-400 hover:underline"
           >
-            github.com/yourusername
+            github.com/Abhishek-S-2001
           </a>
         </p>
       </div>

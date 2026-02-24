@@ -1,38 +1,49 @@
-export const projects = [
+export interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  highlights: string[];
+  github: string;
+  link?: string;
+}
+
+export const projects: Project[] = [
   {
-    title: "Hospital Assistance AI Agent",
+    title: "Risk-Based Continuous Authentication",
     description:
-      "AI-powered hospital service discovery and booking system using multi-agent architecture.",
-    tech: ["Python", "Flask", "PostgreSQL", "AutoGen", "LangChain"],
+      "A Zero Trust security system that uses behavioral biometrics (keystroke dynamics) to continuously authenticate users and detect session misuse in real-time.",
+    tech: ["Python", "Machine Learning", "FastAPI", "MongoDB", "React"],
     highlights: [
-      "Natural language service discovery",
-      "Decoupled AI-agent ↔ DB architecture",
-      "Scalable MCP server design",
-    ],
-    github: "https://github.com/yourusername/hospital-ai-agent",
-  },
-  {
-    title: "Keystroke Dynamics Anomaly Detection",
-    description:
-      "Behavioral biometric system for continuous user authentication using typing patterns.",
-    tech: ["Python", "ML", "Security", "Behavioral Biometrics"],
-    highlights: [
-      "Feature extraction from key events",
-      "Risk-score based anomaly detection",
-      "Designed for Zero Trust systems",
+      "Dynamic risk scoring engine for immediate anomaly detection.",
+      "Analytical dashboard to visualize user behavior trends.",
+      "Prevents unattended session misuse in SSO environments.",
     ],
     github: "https://github.com/yourusername/keystroke-dynamics",
+    link: "https://your-live-demo-url.com", // <-- Update if applicable
   },
   {
-    title: "LinkedIn Company & Post Scraper",
+    title: "Serverless LinkedIn Data Pipeline",
     description:
-      "Automated LinkedIn scraper extracting company metadata and post-level media insights.",
-    tech: ["Python", "Selenium", "Data Engineering"],
+      "Scalable data extraction pipeline capable of scraping company metadata and post analytics, designed for high-volume automated processing.",
+    tech: ["Python", "Selenium", "AWS Lambda", "Docker", "S3"],
     highlights: [
-      "Handled popups & incognito sessions",
-      "Media-type detection in posts",
-      "Structured storage using data classes",
+      "Containerized with Docker for consistent serverless execution.",
+      "Automated storage of structured data into AWS S3.",
+      "Handles anti-bot mechanisms like popups and incognito sessions.",
     ],
     github: "https://github.com/yourusername/linkedin-scraper",
+  },
+  {
+    title: "Developer Portfolio Architecture",
+    description:
+      "A high-performance, modular portfolio designed with a 'Data-as-Content' architecture, cleanly separating UI components from business logic.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    highlights: [
+      "Built with Next.js App Router and statically typed with TypeScript for robust rendering.",
+      "Designed a highly scalable folder structure separating data schemas, sections, and atomic components.",
+      "Fully responsive, dark-themed UI deployed seamlessly via Vercel.",
+    ],
+    github: "https://github.com/yourusername/portfolio-repo", // <-- Add your GitHub repo
+    link: "https://abhishek-shekhawat-portfolio.vercel.app/", 
   },
 ];
