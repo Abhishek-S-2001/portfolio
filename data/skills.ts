@@ -1,4 +1,11 @@
-export const skills = [
+// src/data/skills.ts
+
+export interface SkillCategory {
+  category: string;
+  items: string[];
+}
+
+export const skills: SkillCategory[] = [
   {
     category: "Backend Development",
     items: ["Python", "Flask", "FastAPI", "REST APIs", "Microservices"],

@@ -1,20 +1,22 @@
+"use client";
+
 import SectionWrapper from "@/components/SectionWrapper";
 
 export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen px-6 py-24 max-w-5xl mx-auto"
+      className="min-h-screen px-6 py-24 max-w-5xl mx-auto flex flex-col justify-center"
     >
       <SectionWrapper>
-        <h2 className="text-3xl md:text-4xl font-bold mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-slate-900">
           About Me
         </h2>
 
-        <div className="text-gray-300 text-lg leading-relaxed space-y-6">
+        <div className="text-slate-600 text-lg leading-relaxed space-y-6">
           <p>
             I’m Abhishek Shekhawat, a Computer Science postgraduate based in 
-            <span className="text-white font-medium"> Noida, Uttar Pradesh</span>. 
+            <span className="text-slate-900 font-semibold"> Noida, Uttar Pradesh</span>. 
             I have a strong foundation in programming, backend development, 
             and system design, with a focus on building scalable and efficient applications.
           </p>

@@ -10,7 +10,7 @@ import Education from "@/sections/Education";
 
 export default function Home() {
   return (
-    <main className="bg-black text-white">
+   <main className="bg-slate-50 text-slate-900 min-h-screen selection:bg-blue-100 selection:text-blue-900">
       <Hero />
       <About />
       <Skills />
