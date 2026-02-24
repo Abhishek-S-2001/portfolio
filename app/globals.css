@@ -1,29 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Clean White / Slate-50 background */
+  --background: #f8fafc; 
+  /* Deep Slate-900 text for sharp contrast */
+  --foreground: #0f172a;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
+/* Commented out automatic dark mode to enforce the clean white theme 
+  you requested, regardless of the visitor's system settings.
+*/
+/*
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
+*/
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 html {
   scroll-behavior: smooth;
+}
+
+/* Global selection color matching your light blue highlight theme */
+::selection {
+  background-color: #dbeafe; /* tailwind blue-100 */
+  color: #1e3a8a;    /* tailwind blue-900 */
 }
