@@ -40,7 +40,6 @@ export default function Projects() {
               {project.tech.map((tech) => (
                 <span
                   key={tech}
-                  // Here are the light blue highlights!
                   className="text-xs px-3 py-1 bg-blue-50 text-blue-700 rounded-full border border-blue-100 font-medium"
                 >
                   {tech}
@@ -49,7 +48,8 @@ export default function Projects() {
             </div>
 
             <div className="flex items-center gap-6 border-t border-slate-100 pt-4">
-              <a
+              {project.github && (
+                <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -57,6 +57,7 @@ export default function Projects() {
               >
                 View GitHub ↗
               </a>
+              )}
               
               {project.link && (
                 <a

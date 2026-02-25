@@ -21,7 +21,7 @@ export const experiences: Experience[] = [
       "Developing scalable data solutions using PostgreSQL and Flask, building APIs and backend services to support AI-driven workflows and analytics.",
       "Automating deployment workflows with GitHub Actions and implementing version control strategies to streamline CI/CD and ensure reliable releases."
     ],
-    techStack: ["Flask", "PostgreSQL", "GitHub Actions", "CI/CD", "APIs"],
+    techStack: ["Python", "Flask", "PostgreSQL", "GitHub Actions", "CI/CD", "APIs"],
   },
   {
     role: "Fullstack Developer",
@@ -33,7 +33,7 @@ export const experiences: Experience[] = [
       "Developed and optimized data pipelines using Python, integrating AWS (Lambda, S3, ECS, IAM) and Google Cloud Functions for scalable and automated ETL workflows.",
       "Leveraged containerization and serverless architectures (Docker, Lambda) to build cost-effective, high-performance data solutions with event-driven processing."
     ],
-    techStack: ["Python", "AWS Lambda", "AWS S3", "Docker", "GCP", "ETL"],
+    techStack: ["Python", "AWS Lambda", "AWS S3", "Docker", "GCP", "ETL", "Databricks"],
   },
   {
     role: "Backend Developer",

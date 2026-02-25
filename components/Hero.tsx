@@ -78,13 +78,31 @@ export default function Hero() {
             </div>
 
             {/* Contact Button */}
-            <Link 
+            <a
               href="#contact" 
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                window.history.pushState(null, '', '#contact');
+              }}
               className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition-all duration-200 shadow-md shadow-blue-600/20 hover:shadow-lg hover:shadow-blue-600/30 flex items-center justify-center gap-2 md:ml-2"
             >
               Let's Connect
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-            </Link>
+            </a>
+
+            {/* Resume Download Button */}
+              <a 
+                href="/resume.pdf" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 font-medium rounded-xl transition-all duration-200 border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-300 flex items-center justify-center gap-2 group"
+              >
+                Resume
+                <svg className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </a>
           </motion.div>
         </div>
       </motion.div>
