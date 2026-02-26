@@ -9,7 +9,7 @@ const links = [
   { name: "Experience", hash: "#experience" },
   { name: "Projects", hash: "#projects" },
   { name: "Research", hash: "#research" },
-  { name: "Skills", hash: "#skills" },
+  // { name: "Skills", hash: "#skills" },
   { name: "Education", hash: "#education" },
   { name: "Contact", hash: "#contact" },
 ];
@@ -61,7 +61,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50 bg-white/80 backdrop-blur-md border border-blue-300 shadow-lg shadow-blue-100/50 rounded-2xl transition-all">
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl z-50 bg-white/80 backdrop-blur-md border border-blue-300 shadow-lg shadow-blue-100/50 rounded-2xl transition-all">
       <div className="px-6 py-3.5 flex justify-between items-center">
         
         <Link href="/" className="text-lg md:text-xl font-bold tracking-tight text-slate-900">
