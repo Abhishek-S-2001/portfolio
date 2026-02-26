@@ -16,7 +16,7 @@ export default function Home() {
       <Experience /> {/* Moved up: Show your real-world impact immediately */}
       <Projects />   {/* Followed by what you've built */}
       <Research />   {/* Your niche/specialty */}
-      <Skills />     {/* Stack summary to validate the work above */}
+      {/* <Skills />     Stack summary to validate the work above */}
       <Education />  
       <Contact />
       <Footer />

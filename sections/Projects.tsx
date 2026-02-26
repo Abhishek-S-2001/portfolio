@@ -3,6 +3,7 @@
 
 import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Projects() {
   return (
@@ -48,6 +49,18 @@ export default function Projects() {
             </div>
 
             <div className="flex items-center gap-6 border-t border-slate-100 pt-4">
+              {
+                project.slug && (
+                <Link
+                href={`/projects/${project.slug}`}
+                className="text-blue-500 hover:text-blue-800 font-semibold text-sm flex items-center gap-1.5 transition-colors"
+              >
+                Dive into my project
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </Link>
+                )
+              }
+
               {project.github && (
                 <a
                 href={project.github}
