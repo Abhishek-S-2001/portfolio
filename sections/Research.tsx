@@ -6,7 +6,7 @@ const researchItems = [
     description:
       "A study on combining SSO frameworks with passwordless authentication to improve security and user experience in modern applications.",
     topics: ["SSO", "Passkeys", "OIDC", "Zero Trust"],
-    status: "Published in IEEE Xplore",
+    status: "Published in IEEE Xplore, 2025",
     link: "https://ieeexplore.ieee.org/document/11211864", 
   },
   {
@@ -14,7 +14,8 @@ const researchItems = [
     description:
       "An adaptive authentication framework that extends Identity Provider (IdP) functions using biometric recognition and continuous behavioral monitoring to secure active sessions.",
     topics: ["Continuous Monitoring", "Zero Trust", "SSO", "Biometrics"],
-    status: "Presented | Awaiting Publication",
+    status: "Published in IEEE Xplore, 2025",
+    link: "https://ieeexplore.ieee.org/document/11430291", 
   },
   {
     title: "Continuous Risk-Adaptive Authentication Framework",

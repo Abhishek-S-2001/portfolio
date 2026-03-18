@@ -13,10 +13,9 @@ export default function Home() {
    <main className="bg-slate-50 text-slate-900 min-h-screen selection:bg-blue-100 selection:text-blue-900">
       <Hero />
       <About />
-      <Experience /> {/* Moved up: Show your real-world impact immediately */}
-      <Projects />   {/* Followed by what you've built */}
-      <Research />   {/* Your niche/specialty */}
-      {/* <Skills />     Stack summary to validate the work above */}
+      <Experience />
+      <Projects />  
+      <Research /> 
       <Education />  
       <Contact />
       <Footer />
