@@ -35,6 +35,58 @@ export const projects: Project[] = [
     // link: "https://your-live-demo-url.com",
   },
 
+  {
+    title: "Keystroke Dynamics Biometric Authenticator",
+    slug: "keystroke-dynamics-authenticator",
+    description: "A real-time, behavioral biometric authentication system that verifies user identity based on typing rhythm using Kernel Density Estimation (KDE) and continuous machine learning.",
+    tech: ["Next.js", "FastAPI", "Scikit-Learn", "Supabase", "Python"],
+    highlights: [
+      "Engineered a Zero-Trust Continuous Authentication engine using Keystroke Dynamics (Dwell, Flight, and Hold times).",
+      "Implemented an Adaptive Sliding Window to continuously retrain the Scikit-Learn pipeline and adapt to human behavioral drift.",
+      "Developed a Live Telemetry Dashboard rendering real-time Matplotlib charts via Base64 encoding.",
+    ],
+    github: "https://github.com/Abhishek-S-2001/ANOMALY_DETECTOR", // Update if your repo name differs
+    link: "https://kde-authenticator.vercel.app/",
+    contentSections: [
+      {
+        title: "System Architecture & Live Dashboard",
+        image: "/KDE_Dashboard.png",
+        body: "This system leverages non-parametric machine learning to model unique typing rhythms and continuously adapts to human behavioral drift over time. It is built as a decoupled microservices architecture with a Next.js frontend hosted on Vercel's Edge Network, and a FastAPI backend hosted on Render. Data logging and model storage are handled via Supabase (PostgreSQL & Object Storage)."
+      },
+      {
+        title: "Advanced Biometric Features",
+        list: [
+          "Zero-Trust Continuous Authentication: Analyzes keystroke timing down to the millisecond to enforce continuous identity verification rather than point-in-time checks.",
+          "Cold-Start Mitigation: Uses multi-modal synthetic data generation to build a robust, secure baseline from just 5 initial registration samples by injecting realistic human micro-variations (jitter).",
+          "Adaptive Sliding Window (Concept Drift): Employs asynchronous background tasks to continuously retrain the model on the user's 100 most recent genuine logins, preventing lockouts as typing habits naturally evolve."
+        ]
+      },
+      {
+        title: "Mathematical Foundation: Kernel Density Estimation",
+        body: "The system utilizes Principal Component Analysis (PCA) for dimensionality reduction of highly correlated timing vectors. The reduced features are then fed into a Gaussian Kernel Density Estimator to construct a probability density function:\n\n$$\\hat{f}_h(x)=\\frac{1}{nh}\\sum_{i=1}^n K\\Big(\\frac{x-x_i}{h}\\Big)$$\n\nAuthentications are scored based on log-likelihood. Boundaries are strictly enforced at dynamic percentiles (e.g., 5th percentile) of the user's localized density clusters."
+      },
+      {
+        title: "Local Installation & Setup",
+        body: "The application is structured as a monorepo containing the decoupled frontend and backend. Here is how to initialize the environments locally:",
+        codeSnippet: `# 1. Setup the Backend (FastAPI)
+cd kde-backend
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+# Start the FastAPI server (Runs on port 8000)
+uvicorn main:app --reload
+
+# 2. Setup the Frontend (Next.js)
+cd ../kde-authenticator
+npm install
+
+# Start the Next.js development server (Runs on port 3000)
+npm run dev`
+      }
+    ]
+  },
+
 
   {
     title: "Serverless LinkedIn Data Pipeline",
