@@ -45,7 +45,7 @@ export const projects: Project[] = [
       "Implemented an Adaptive Sliding Window to continuously retrain the Scikit-Learn pipeline and adapt to human behavioral drift.",
       "Developed a Live Telemetry Dashboard rendering real-time Matplotlib charts via Base64 encoding.",
     ],
-    github: "https://github.com/Abhishek-S-2001/ANOMALY_DETECTOR", // Update if your repo name differs
+    github: "https://github.com/Abhishek-S-2001/Anomaly_Detector/tree/KDE_Authenticator_Demo",
     link: "https://kde-authenticator.vercel.app/",
     contentSections: [
       {
@@ -177,7 +177,7 @@ docker push <account-id>.dkr.ecr.<region>.amazonaws.com/selenium-lambda:latest`
 
 
 
-{
+  {
     title: "Developer Portfolio Architecture",
     slug: "portfolio-architecture",
     description: "A high-performance, modular portfolio designed with a 'Data-as-Content' architecture, cleanly separating UI components from business logic.",
@@ -232,7 +232,7 @@ npm run dev`
   },
 
 
-{
+  {
     title: "Automated CI/CD Release & Versioning System",
     slug: "cicd-versioning",
     description: "A complete GitHub Actions CI/CD pipeline that automates semantic versioning, release note generation, and email notifications based on Git commit history.",
@@ -293,7 +293,7 @@ git status`
       "Integrated MongoDB for persistent storage of structured movie data and user-generated reviews.",
       "Successfully deployed both the frontend client and backend API independently via Vercel for high availability.",
     ],
-    github: "https://github.com/Abhishek-S-2001/Movie-Review-WebApp", 
+    github: "https://github.com/Abhishek-S-2001/Movie-Review-WebApp",
     contentSections: [
       {
         title: "System Overview",

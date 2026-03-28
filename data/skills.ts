@@ -31,3 +31,31 @@ export const skills: SkillCategory[] = [
     items: ["PostgreSQL", "SQL", "MongoDB (NoSQL)"],
   },
 ];
+
+// ── Resume-specific grouped skill lines ──────────────────────────────────────
+// These are the editable one-liner skill groups used in the resume PDF builder.
+// They intentionally use a different grouping than the Hero skill cards above.
+
+export interface ResumeSkillGroup {
+  label: string;
+  value: string;
+}
+
+export const resumeSkillGroups: ResumeSkillGroup[] = [
+  {
+    label: "Backend",
+    value: "Python, Node.js, FastAPI, Flask, GitHub Actions, CI/CD",
+  },
+  {
+    label: "Cloud Computing",
+    value: "EC2, VPC, IAM, AWS Lambda, S3, AWS ECS",
+  },
+  {
+    label: "Frontend & Data",
+    value: "React, Next.js, TypeScript, PostgreSQL, MongoDB, SQL, Tailwind CSS",
+  },
+  {
+    label: "Tools",
+    value: "Git, GitHub, Docker, Postman, VS Code, Vercel, Render, Docker",
+  },
+];
