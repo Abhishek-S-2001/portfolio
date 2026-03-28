@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 // Skill data mapped directly from your provided image
 const skillCategories = [
@@ -52,12 +53,12 @@ const tools = [
 export default function Hero() {
   return (
     <section className="min-h-screen pt-28 pb-20 flex flex-col justify-center items-center px-4 sm:px-6 relative overflow-hidden">
-      
+
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] bg-blue-50/80 rounded-full blur-3xl opacity-60 -z-10"></div>
 
       <div className="max-w-6xl w-full flex flex-col gap-6">
-        
+
         {/* ========================================= */}
         {/* LARGE CARD: Profile & Actions             */}
         {/* ========================================= */}
@@ -110,9 +111,9 @@ export default function Hero() {
               <a href="#contact" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition-all duration-200 shadow-md flex items-center gap-2">
                 Let's Connect
               </a>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 font-medium rounded-xl transition-all duration-200 border border-slate-200 shadow-sm flex items-center gap-2">
+              <Link href="/resume" className="px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 font-medium rounded-xl transition-all duration-200 border border-slate-200 shadow-sm flex items-center gap-2">
                 Resume
-              </a>
+              </Link>
             </div>
 
             {/* CP Stats Bottom Row */}
@@ -144,46 +145,46 @@ export default function Hero() {
         </motion.div>
 
 
-                  {/* ========================================= */}
-          {/* WIDE CARD: Tools & Platforms Showcase     */}
-          {/* ========================================= */}
-          <motion.div
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4}}
-            className="md:col-span-2 lg:col-span-3 bg-white/80 backdrop-blur-xl border border-slate-200 rounded-3xl p-6 sm:px-8 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 hover:shadow-md hover:border-blue-300 transition-all"
-          >
-            <div className="flex items-center gap-3 shrink-0">
-              <span className="p-2 bg-slate-100 text-slate-600 rounded-lg">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </span>
-              <h3 className="text-base font-bold text-slate-900">Tools & Platforms</h3>
-            </div>
+        {/* ========================================= */}
+        {/* WIDE CARD: Tools & Platforms Showcase     */}
+        {/* ========================================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="md:col-span-2 lg:col-span-3 bg-white/80 backdrop-blur-xl border border-slate-200 rounded-3xl p-6 sm:px-8 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 hover:shadow-md hover:border-blue-300 transition-all"
+        >
+          <div className="flex items-center gap-3 shrink-0">
+            <span className="p-2 bg-slate-100 text-slate-600 rounded-lg">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </span>
+            <h3 className="text-base font-bold text-slate-900">Tools & Platforms</h3>
+          </div>
 
-            {/* The Visual Tools Grid */}
-            <div className="flex flex-wrap justify-center sm:justify-end gap-3 w-full">
-              {tools.map((tech) => (
-                <div key={tech.name} className="flex items-center gap-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl hover:bg-white hover:border-blue-300 hover:shadow-sm transition-all cursor-default group/tool">
-                  <img src={`https://cdn.simpleicons.org/${tech.icon}`} alt={tech.name} className="w-4 h-4 group-hover/tool:scale-110 transition-transform" />
-                  <span className="text-xs font-semibold text-slate-700">{tech.name}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+          {/* The Visual Tools Grid */}
+          <div className="flex flex-wrap justify-center sm:justify-end gap-3 w-full">
+            {tools.map((tech) => (
+              <div key={tech.name} className="flex items-center gap-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl hover:bg-white hover:border-blue-300 hover:shadow-sm transition-all cursor-default group/tool">
+                <img src={`https://cdn.simpleicons.org/${tech.icon}`} alt={tech.name} className="w-4 h-4 group-hover/tool:scale-110 transition-transform" />
+                <span className="text-xs font-semibold text-slate-700">{tech.name}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* ========================================= */}
         {/* SMALL CARDS: Categorized Skills Grid      */}
         {/* ========================================= */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {skillCategories.map((category, index) => (
-            <motion.div 
+            <motion.div
               key={category.title}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 + (index * 0.1) }} 
+              transition={{ delay: 0.5 + (index * 0.1) }}
               className="bg-white/80 backdrop-blur-xl border border-slate-200 rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-blue-300 transition-all group"
             >
               <h3 className="text-base font-bold text-slate-900 mb-4 flex items-center gap-2.5">
@@ -194,11 +195,11 @@ export default function Hero() {
                 </span>
                 {category.title}
               </h3>
-              
+
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
-                  <span 
-                    key={skill} 
+                  <span
+                    key={skill}
                     className="px-3 py-1.5 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-medium rounded-lg"
                   >
                     {skill}
