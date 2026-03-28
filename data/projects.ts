@@ -46,7 +46,7 @@ export const projects: Project[] = [
       "Developed a Live Telemetry Dashboard rendering real-time Matplotlib charts via Base64 encoding.",
     ],
     github: "https://github.com/Abhishek-S-2001/Anomaly_Detector/tree/KDE_Authenticator_Demo",
-    link: "https://kde-authenticator.vercel.app/",
+    link: "https://kde-authenticator.vercel.app",
     contentSections: [
       {
         title: "System Architecture & Live Dashboard",
@@ -188,7 +188,7 @@ docker push <account-id>.dkr.ecr.<region>.amazonaws.com/selenium-lambda:latest`
       "Fully responsive, light-themed UI deployed seamlessly via Vercel.",
     ],
     github: "https://github.com/Abhishek-S-2001/portfolio",
-    link: "https://abhishek-shekhawat-portfolio.vercel.app/",
+    link: "https://abhishek-shekhawat-portfolio.vercel.app",
     contentSections: [
       {
         title: "System Architecture: 'Data-as-Content'",
