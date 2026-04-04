@@ -8,7 +8,7 @@ export interface SkillCategory {
 export const skills: SkillCategory[] = [
   {
     category: "Backend Development",
-    items: ["Python", "Flask", "FastAPI", "REST APIs", "Microservices"],
+    items: ["Python", "Flask", "FastAPI", "System Design (HLD/LLD)", "REST APIs", "Microservices"],
   },
   {
     category: "Frontend Development",
@@ -16,7 +16,7 @@ export const skills: SkillCategory[] = [
   },
   {
     category: "Cloud & DevOps",
-    items: ["AWS (EC2, S3, IAM, RDS)", "Docker", "GitHub Actions"],
+    items: ["AWS (EC2, S3, IAM, RDS)", "Kubernetes", "EKS", "Docker", "GitHub Actions"],
   },
   {
     category: "Security & Identity",
@@ -24,7 +24,7 @@ export const skills: SkillCategory[] = [
   },
   {
     category: "AI & Data",
-    items: ["LangChain", "AutoGen", "Behavioral Biometrics", "ML Basics"],
+    items: ["LangChain", "RAG", "AutoGen", "Behavioral Biometrics", "ML Basics"],
   },
   {
     category: "Databases",
@@ -44,15 +44,15 @@ export interface ResumeSkillGroup {
 export const resumeSkillGroups: ResumeSkillGroup[] = [
   {
     label: "Backend",
-    value: "Python, Node.js, FastAPI, Flask, GitHub Actions, CI/CD",
+    value: "Python, Node.js, System Design (HLD/LLD), FastAPI, Flask, GitHub Actions, CI/CD",
   },
   {
     label: "Cloud Computing",
-    value: "EC2, VPC, IAM, AWS Lambda, S3, AWS ECS",
+    value: "EC2, VPC, IAM, AWS Lambda, S3, AWS ECS, Kubernetes, EKS",
   },
   {
     label: "Frontend & Data",
-    value: "React, Next.js, TypeScript, PostgreSQL, MongoDB, SQL, Tailwind CSS",
+    value: "React, Next.js, TypeScript, PostgreSQL, MongoDB, SQL, LangChain, RAG",
   },
   {
     label: "Tools",

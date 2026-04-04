@@ -21,72 +21,54 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Risk-Based Continuous Authentication",
-    // slug: "risk-based-auth",
-    description:
-      "A Zero Trust security system that uses behavioral biometrics (keystroke dynamics) to continuously authenticate users and detect session misuse in real-time.",
-    tech: ["Python", "Machine Learning", "FastAPI", "MongoDB", "React"],
+    title: "Anomaly Detector",
+    slug: "anomaly-detector",
+    description: "A zero-trust, continuous biometric authentication system that uses Kernel Density Estimation, multi-factor risk aggregation, and adaptive sliding-window retraining to verify user identity from behavioral signatures alone.",
+    tech: ["Next.js 15", "FastAPI", "Scikit-Learn", "Supabase", "Python"],
     highlights: [
-      "Dynamic risk scoring engine for immediate anomaly detection.",
-      "Analytical dashboard to visualize user behavior trends.",
-      "Prevents unattended session misuse in SSO environments.",
+      "Captures DOM keydown/keyup events with precision timestamps to compute dwell, flight, and hold times.",
+      "Reduces 6D timing vectors via PCA and scores log-likelihood against a Gaussian Kernel Density Estimator.",
+      "Implements an adaptive sliding-window that retrains the model asynchronously on the last 100 genuine logs to prevent classifier drift.",
     ],
-    // github: "https://github.com/yourusername/keystroke-dynamics",
-    // link: "https://your-live-demo-url.com",
-  },
-
-  {
-    title: "Keystroke Dynamics Biometric Authenticator",
-    slug: "keystroke-dynamics-authenticator",
-    description: "A real-time, behavioral biometric authentication system that verifies user identity based on typing rhythm using Kernel Density Estimation (KDE) and continuous machine learning.",
-    tech: ["Next.js", "FastAPI", "Scikit-Learn", "Supabase", "Python"],
-    highlights: [
-      "Engineered a Zero-Trust Continuous Authentication engine using Keystroke Dynamics (Dwell, Flight, and Hold times).",
-      "Implemented an Adaptive Sliding Window to continuously retrain the Scikit-Learn pipeline and adapt to human behavioral drift.",
-      "Developed a Live Telemetry Dashboard rendering real-time Matplotlib charts via Base64 encoding.",
-    ],
-    github: "https://github.com/Abhishek-S-2001/Anomaly_Detector/tree/KDE_Authenticator_Demo",
-    link: "https://kde-authenticator.vercel.app",
+    github: "https://github.com/Abhishek-S-2001/Anomaly_Detector",
+    link: "https://anomaly-detector-three.vercel.app/",
     contentSections: [
       {
-        title: "System Architecture & Live Dashboard",
-        image: "/KDE_Dashboard.png",
-        body: "This system leverages non-parametric machine learning to model unique typing rhythms and continuously adapts to human behavioral drift over time. It is built as a decoupled microservices architecture with a Next.js frontend hosted on Vercel's Edge Network, and a FastAPI backend hosted on Render. Data logging and model storage are handled via Supabase (PostgreSQL & Object Storage)."
+        title: "Live Dashboard & High-Level Architecture",
+        image: "/anomaly-dashboard.png",
+        body: "The system features a decoupled architecture with a Next.js 15 frontend and a FastAPI backend. It captures precision timings using performance.now() and forwards them to the Python backend for machine learning analysis. Data logging and serialized model storage (.pkl files) are handled via Supabase."
       },
       {
-        title: "Advanced Biometric Features",
+        title: "Feature Extraction & Biometric Vectors",
+        image: "/anomaly-architecture.svg",
+        body: "Raw keystrokes are processed into three distinct timing intervals:",
         list: [
-          "Zero-Trust Continuous Authentication: Analyzes keystroke timing down to the millisecond to enforce continuous identity verification rather than point-in-time checks.",
-          "Cold-Start Mitigation: Uses multi-modal synthetic data generation to build a robust, secure baseline from just 5 initial registration samples by injecting realistic human micro-variations (jitter).",
-          "Adaptive Sliding Window (Concept Drift): Employs asynchronous background tasks to continuously retrain the model on the user's 100 most recent genuine logins, preventing lockouts as typing habits naturally evolve."
+          "Dwell Time: Duration for which a single key is held down.",
+          "Flight Time: Time between releasing one key and pressing the next.",
+          "Hold Time: A parallel stream to dwell time used to capture system-level timing delay differences."
         ]
       },
       {
-        title: "Mathematical Foundation: Kernel Density Estimation",
-        body: "The system utilizes Principal Component Analysis (PCA) for dimensionality reduction of highly correlated timing vectors. The reduced features are then fed into a Gaussian Kernel Density Estimator to construct a probability density function:\n\n$$\\hat{f}_h(x)=\\frac{1}{nh}\\sum_{i=1}^n K\\Big(\\frac{x-x_i}{h}\\Big)$$\n\nAuthentications are scored based on log-likelihood. Boundaries are strictly enforced at dynamic percentiles (e.g., 5th percentile) of the user's localized density clusters."
+        title: "Dimensionality Reduction & KDE Scoring",
+        body: "The arrays are reduced to a 6D statistical summary (mean and standard deviation). To prevent high-magnitude features from dominating, zero-mean unit-variance normalization is applied via StandardScaler. The vector is then projected into a 2D space using Principal Component Analysis (PCA) before being scored for log-likelihood by the Gaussian Kernel Density Estimator."
       },
       {
-        title: "Local Installation & Setup",
-        body: "The application is structured as a monorepo containing the decoupled frontend and backend. Here is how to initialize the environments locally:",
-        codeSnippet: `# 1. Setup the Backend (FastAPI)
-cd kde-backend
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-
-# Start the FastAPI server (Runs on port 8000)
-uvicorn main:app --reload
-
-# 2. Setup the Frontend (Next.js)
-cd ../kde-authenticator
-npm install
-
-# Start the Next.js development server (Runs on port 3000)
-npm run dev`
+        title: "Risk Aggregation Engine",
+        body: "Authentication decisions are not binary; they are based on a dynamic composite risk score blending behavioral, contextual, and environmental data:",
+        codeSnippet: `// R(t) Composite Risk Formula
+R(t) = 0.50 * B(t) + 0.30 * C(t) + 0.20 * E(t)`
+      },
+      {
+        title: "Adaptive Sliding-Window Retraining",
+        image: "/anomaly-retraining.png",
+        body: "Because human typing behavior drifts naturally over time, a static model will progressively reject its own genuine user. To solve this, successful genuine logins trigger a FastAPI BackgroundTask that fetches the last 100 genuine logs and completely rebuilds the KDE pipeline, ensuring recency bias without blocking the HTTP response."
+      },
+      {
+        title: "Cold-Start Mitigation via Synthetic Augmentation",
+        body: "KDE requires many samples for accurate density boundaries. The system solves the cold-start problem using Multi-Modal Gaussian Augmentation. For each of the 5 real registration samples, it generates 40 synthetic variants applying calculated Gaussian jitter, resulting in 200+ training points to create a realistic density cloud."
       }
     ]
   },
-
 
   {
     title: "Serverless LinkedIn Data Pipeline",
