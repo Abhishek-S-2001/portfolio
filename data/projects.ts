@@ -8,6 +8,13 @@ export interface ProjectDetailSection {
   image?: string;
 }
 
+export interface ShowcaseFeature {
+  label: string;
+  layer: "frontend" | "backend";
+  image?: string;
+  description: string;
+}
+
 export interface Project {
   title: string;
   slug?: string;
@@ -17,6 +24,7 @@ export interface Project {
   github?: string;
   link?: string;
   contentSections?: ProjectDetailSection[];
+  showcaseFeatures?: ShowcaseFeature[];
 }
 
 export const projects: Project[] = [
@@ -32,6 +40,31 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/Abhishek-S-2001/Anomaly_Detector",
     link: "https://anomaly-detector-three.vercel.app/",
+    showcaseFeatures: [
+      {
+        label: "Next.js Live Dashboard",
+        layer: "frontend",
+        image: "/anomaly-dashboard.png",
+        description: "Real-time authentication dashboard built with Next.js 15 and React, displaying risk scores, session history, and biometric confidence levels.",
+      },
+      {
+        label: "System Architecture",
+        layer: "backend",
+        image: "/anomaly-architecture.svg",
+        description: "Decoupled architecture with a Next.js frontend, FastAPI backend, and Supabase for data persistence and serialized model storage.",
+      },
+      {
+        label: "FastAPI KDE Engine",
+        layer: "backend",
+        description: "Gaussian Kernel Density Estimator that scores 6D biometric vectors against a learned density surface for anomaly detection.",
+      },
+      {
+        label: "Adaptive Retraining Pipeline",
+        layer: "backend",
+        image: "/anomaly-retraining.png",
+        description: "Sliding-window background task that rebuilds the KDE model from the last 100 genuine logs to prevent classifier drift over time.",
+      },
+    ],
     contentSections: [
       {
         title: "Live Dashboard & High-Level Architecture",
