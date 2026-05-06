@@ -39,15 +39,15 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen px-6 py-24 max-w-5xl mx-auto flex flex-col justify-center"
+      className="min-h-screen px-6 py-24 max-w-5xl mx-auto flex flex-col justify-center relative z-10"
     >
       <div className="max-w-3xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white section-heading">
           Get In Touch
         </h2>
 
-        <p className="text-slate-600 text-lg mb-12 leading-relaxed">
-          I’m always open to discussing backend engineering roles, research
+        <p className="text-gray-500 text-lg mb-12 leading-relaxed">
+          I&apos;m always open to discussing backend engineering roles, research
           collaborations, or interesting system design problems. Feel free to reach out.
         </p>
 
@@ -63,20 +63,19 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -4 }}
-              className="flex flex-col items-start gap-4 p-6 bg-white border border-slate-200 rounded-2xl hover:border-blue-400 hover:shadow-lg hover:shadow-blue-100 transition-all group"
+              className="flex flex-col items-start gap-4 p-6 glass-card rounded-2xl hover:border-white/15 hover:shadow-lg hover:shadow-cyan-accent/5 transition-all group"
             >
               {/* Icon Container */}
-              <div className="p-3 bg-slate-50 text-slate-600 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors border border-slate-100 group-hover:border-blue-600">
+              <div className="p-3 bg-white/5 text-gray-400 rounded-xl group-hover:bg-cyan-accent/10 group-hover:text-cyan-accent transition-colors border border-white/5 group-hover:border-cyan-accent/20">
                 {contact.icon}
               </div>
 
               {/* Text Info */}
               <div className="w-full">
-                <p className="text-sm font-semibold text-slate-900 mb-1">
+                <p className="text-sm font-semibold text-white mb-1">
                   {contact.title}
                 </p>
-                {/* break-all prevents long emails/links from stretching the card on mobile */}
-                <p className="text-slate-500 text-sm font-medium group-hover:text-blue-600 transition-colors break-all">
+                <p className="text-gray-500 text-sm font-medium group-hover:text-cyan-accent transition-colors break-all">
                   {contact.value}
                 </p>
               </div>
