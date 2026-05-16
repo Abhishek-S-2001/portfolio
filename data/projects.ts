@@ -28,6 +28,220 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // ── PROJECT 1: FamSilo (Social Platform) ───────────────────────────────────
+  {
+    title: "FamSilo",
+    slug: "famsilo",
+    description: "A private family social network — 'Your Digital Heirloom'. Families create invite-only Silos, share posts, photos and videos, chat in real time, and stay connected through a clean Next.js 15 frontend backed by a FastAPI + Supabase stack.",
+    tech: ["Next.js 15", "FastAPI", "Supabase", "PostgreSQL", "WebSocket", "Python", "Tailwind v4", "React 19"],
+    highlights: [
+      "Invite-only Silo group system with dedicated post walls, photo/video sharing, and Supabase Row Level Security ensuring strict per-silo data isolation.",
+      "Real-time group chat powered by a native FastAPI WebSocket server — an in-memory ConnectionManager broadcasts messages to all connected silo members instantly with no third-party pub/sub dependency.",
+      "Dual auth flows (email/password + Google OAuth) via Supabase Auth with JWT Bearer token verification on every API route; profiles are auto-provisioned on first sign-in via a DB trigger.",
+    ],
+    link: "https://famsilo-webapp.vercel.app/",
+    showcaseFeatures: [
+      {
+        label: "Next.js 15 Frontend",
+        layer: "frontend",
+        description: "App Router, React 19, Tailwind v4 — a polished, invite-only login experience with Google OAuth and username-based authentication. SWR drives all data fetching for instant, reactive UI updates.",
+      },
+      {
+        label: "Invite-Only Silo System",
+        layer: "frontend",
+        description: "Families create named Silos and invite members via a unique link. Each Silo has its own post wall, photo gallery, and member roster — all access-gated by Supabase RLS policies at the database row level.",
+      },
+      {
+        label: "FastAPI Backend",
+        layer: "backend",
+        description: "Python 3.12 + Uvicorn + Pydantic v2. Handles all REST endpoints, async background tasks for AI agents, orchestrates the content moderation pipeline, and manages WebSocket connections.",
+      },
+      {
+        label: "Real-Time WebSocket Chat",
+        layer: "backend",
+        description: "A native FastAPI WebSocket server with an in-memory ConnectionManager. All members of a Silo connect on entry; messages are broadcast to every active connection instantly — no polling, no external broker.",
+      },
+    ],
+    contentSections: [
+      {
+        title: "Platform Overview",
+        body: "FamSilo is a private family social network designed as a 'Digital Heirloom' — a safe, AI-moderated space for families to preserve memories, share posts, and communicate in real time. Families create invite-only Silos with dedicated walls, real-time chat, and AI-assisted engagement tools. All data access is secured at the row level via Supabase RLS, ensuring members can only see content from their own silos.",
+      },
+      {
+        title: "System Architecture",
+        body: "The platform is built on a strictly decoupled architecture across three layers:",
+        list: [
+          "Frontend: Next.js 15 (App Router, React 19, Tailwind v4) — SWR for data fetching, Axios for REST communication.",
+          "Backend: FastAPI (Python 3.12, Uvicorn, Pydantic v2) — REST endpoints, async BackgroundTasks, and WebSocket connection management.",
+          "Data Layer: Supabase-hosted PostgreSQL with pgvector for AI embeddings, two storage buckets (media & media-quarantine), and Supabase Auth with JWT-based session management.",
+        ],
+      },
+      {
+        title: "Real-Time Communication",
+        body: "Silo group chats are powered by a native WebSocket server on the FastAPI backend. An in-memory ConnectionManager tracks all active connections per silo, broadcasting messages and system notifications instantly to all connected members without any third-party pub/sub dependency.",
+      },
+      {
+        title: "Authentication & Privacy",
+        body: "Authentication is handled by Supabase Auth supporting both email/password and Google OAuth flows. Profiles are automatically provisioned on first sign-in via a database trigger. All API routes are protected by JWT Bearer token verification, and Supabase Row Level Security (RLS) policies enforce that users can only read and write data belonging to silos they are members of.",
+      },
+      {
+        title: "AI Layer",
+        body: "FamSilo integrates two production AI systems built specifically for the platform — a zero-trust multimodal content moderation pipeline and a three-agent Gemini 2.5 Flash suite. These are documented as separate portfolio projects: 'Zero-Trust AI Moderation Pipeline' and 'FamSilo AI Agent Suite'.",
+      },
+    ],
+  },
+
+  // ── PROJECT 2: Zero-Trust AI Moderation Pipeline ────────────────────────────
+  {
+    title: "Zero-Trust AI Moderation Pipeline",
+    slug: "famsilo-moderation",
+    description: "A production-grade, multimodal content moderation system built for FamSilo. Acts as a zero-trust gatekeeper — intercepting every text, image, and video upload at the FastAPI ingestion layer and routing it through Gemini 2.5 Flash before any write to the database or public storage.",
+    tech: ["Gemini 2.5 Flash", "FastAPI", "Python", "Supabase Storage", "PostgreSQL", "BackgroundTasks"],
+    highlights: [
+      "Zero-trust architecture: no user-generated content is implicitly trusted — synchronous text inspection inline + asynchronous multimodal scanning of images (OCR & visual classification) and videos (frame sampling & audio transcription).",
+      "Hard storage boundary: content that passes moves to the public Supabase media bucket; flagged content is automatically routed to a private media-quarantine bucket unreachable by any client.",
+      "PII Redaction layer: detects and redacts phone numbers, email addresses, national ID patterns, and financial data from all text payloads before persistence — minimising legal liability for accidental data leaks.",
+    ],
+    link: "https://famsilo-webapp.vercel.app/docs",
+    showcaseFeatures: [
+      {
+        label: "Zero-Trust Moderation Gate",
+        layer: "backend",
+        description: "Every payload — text, image, or video — is intercepted at the FastAPI routing layer before any database write. The gate calls Gemini's inspection endpoint and only proceeds on a clean verdict. No content bypasses this checkpoint.",
+      },
+      {
+        label: "Multimodal Media Scanner",
+        layer: "backend",
+        description: "Images are passed to Gemini's vision API for OCR and visual classification. Videos are frame-sampled at defined intervals and their audio track is transcribed — both channels inspected in a single Gemini multimodal call, running as async FastAPI BackgroundTasks.",
+      },
+      {
+        label: "Quarantine Storage Mechanism",
+        layer: "backend",
+        description: "Flagged content is moved to a private Supabase bucket (media-quarantine) with no public access policy. The associated post is marked 'quarantined' in PostgreSQL and never surfaced to silo members. An admin review record is created automatically.",
+      },
+      {
+        label: "PII Redaction Layer",
+        layer: "backend",
+        description: "All text payloads pass through a PII detection step before persistence. Phone numbers, email addresses, national ID patterns, and financial identifiers are detected and redacted — protecting the family data store even if an account is compromised.",
+      },
+    ],
+    contentSections: [
+      {
+        title: "Design Philosophy — Zero Trust",
+        body: "The pipeline was designed on a zero-trust principle: no user-generated content is implicitly safe, regardless of silo membership. Every payload must pass a Gemini-powered inspection gate before any data is written to PostgreSQL or Supabase Storage. This prevents both malicious actors and accidental sensitive data from ever entering the platform's data store.",
+      },
+      {
+        title: "Moderation Flow",
+        body: "The pipeline splits into three parallel paths by media type:",
+        list: [
+          "Text: inspected synchronously inline — the POST endpoint waits for Gemini's verdict before writing the post record. No async gap means no race condition between flagging and visibility.",
+          "Images: downloaded from a temporary upload URL, passed to Gemini's multimodal vision API for OCR and content classification, and evaluated in a FastAPI BackgroundTask so the HTTP response is not delayed.",
+          "Videos: frames are extracted at configurable intervals; the audio track is separately transcribed; both channels are sent in a single Gemini multimodal request for a unified moderation decision.",
+        ],
+      },
+      {
+        title: "Storage Routing",
+        body: "The verdict from Gemini gates a hard storage branch:",
+        list: [
+          "PASS: media is moved to the public Supabase media bucket. The post record is written to PostgreSQL with status 'published'.",
+          "FAIL: media is moved to the private media-quarantine bucket (no public access policy). The post record is written with status 'quarantined' — never returned by any silo feed query.",
+          "An admin review entry is created for every quarantined item, including the moderation verdict, detected categories, and a reference to the quarantined file.",
+        ],
+      },
+      {
+        title: "PII Redaction",
+        body: "All text content passes through a PII detection step before being committed to the database. The system uses Gemini to identify and redact:",
+        list: [
+          "Phone numbers and email addresses.",
+          "National ID numbers, passport numbers, and government identifiers.",
+          "Financial data — credit card numbers, bank account references.",
+          "Any other personally identifiable information flagged by the model.",
+        ],
+      },
+    ],
+  },
+
+  // ── PROJECT 3: FamSilo AI Agent Suite ──────────────────────────────────────
+  {
+    title: "FamSilo AI Agent Suite",
+    slug: "famsilo-agents",
+    description: "Three autonomous AI agents built for FamSilo using Gemini 2.5 Flash and FastAPI BackgroundTasks: a Daily Briefing narrator, a Silo Facilitator that auto-posts on dormancy detection, and an AI Concierge — a RAG chatbot with pgvector retrieval and real-time SSE token streaming.",
+    tech: ["Gemini 2.5 Flash", "FastAPI", "pgvector", "RAG", "SSE", "Python", "PostgreSQL", "Supabase"],
+    highlights: [
+      "AI Concierge: production RAG pipeline — family posts embedded into pgvector, cosine-similarity retrieval on each query, Gemini 2.5 Flash generation, and token-by-token SSE streaming to the client.",
+      "Daily Briefing: autonomous FastAPI BackgroundTask that aggregates all silo activity and prompts Gemini to write a warm, personalized family-newspaper digest, delivered once daily per user.",
+      "Silo Facilitator: dormancy-detection agent that computes engagement scores per silo and auto-generates a contextual re-engagement post via Gemini when a group goes silent.",
+    ],
+    link: "https://famsilo-webapp.vercel.app/docs",
+    showcaseFeatures: [
+      {
+        label: "AI Concierge — RAG + SSE",
+        layer: "backend",
+        description: "A retrieval-augmented chatbot powered by Gemini 2.5 Flash. Family posts and memories are embedded into pgvector; each user query triggers a cosine-similarity search for top-k relevant chunks, which are injected into the Gemini prompt. Responses stream token-by-token via SSE.",
+      },
+      {
+        label: "pgvector Embedding Store",
+        layer: "backend",
+        description: "All post content is embedded using a Gemini embedding model and stored in PostgreSQL via Supabase's pgvector extension. The vector store is scoped per silo — queries only retrieve memories from the user's own family group.",
+      },
+      {
+        label: "Daily Briefing Agent",
+        layer: "backend",
+        description: "A scheduled FastAPI BackgroundTask that collects all posts, reactions, and messages from the past 24 hours and prompts Gemini to narrate them as a warm family-newspaper story — stored as a Briefing record and surfaced on the user's next login.",
+      },
+      {
+        label: "Silo Facilitator Agent",
+        layer: "backend",
+        description: "Monitors per-silo engagement frequency. When dormancy exceeds a configurable threshold, the agent prompts Gemini with recent silo context to generate a personalized re-engagement post, automatically attributed to 'FamSilo AI' and injected into the silo feed.",
+      },
+    ],
+    contentSections: [
+      {
+        title: "Agent Architecture",
+        body: "All three agents run within the FastAPI backend as either scheduled BackgroundTasks or trigger-based endpoints. They share a common Google GenAI SDK client (Gemini 2.5 Flash) and a Supabase PostgreSQL connection with pgvector for the RAG agent's vector store. No external agent framework is used — the orchestration logic is purpose-built in Python.",
+      },
+      {
+        title: "AI Concierge — RAG Pipeline",
+        body: "The AI Concierge is the most architecturally complex agent. It implements a full production RAG loop with real-time token streaming:",
+        list: [
+          "Ingestion: all post and message content is chunked and embedded using a Gemini embedding model. Embeddings are stored in the pgvector table, scoped to the originating silo.",
+          "Retrieval: on each user query, a cosine-similarity search against the silo's pgvector namespace returns the top-k most semantically relevant memory chunks.",
+          "Generation: the retrieved chunks are prepended to the Gemini prompt as grounded context, followed by the user's question.",
+          "Streaming: Gemini's streaming API is consumed token-by-token inside an async generator. Each token is formatted as an SSE data frame and flushed to the client immediately.",
+        ],
+        codeSnippet: `# AI Concierge — SSE streaming endpoint (FastAPI)
+@router.get("/concierge/stream")
+async def concierge_stream(query: str, silo_id: str, user=Depends(get_current_user)):
+    chunks = await retrieve_relevant_chunks(query, silo_id)   # pgvector cosine search
+    context = build_context_prompt(chunks)
+    async def event_generator():
+        async for token in gemini_stream(context, query):
+            yield f"data: {token}\\n\\n"
+    return StreamingResponse(event_generator(), media_type="text/event-stream")`,
+      },
+      {
+        title: "Daily Briefing Agent",
+        body: "A scheduled autonomous agent that synthesizes all silo activity over the past 24 hours into a warm, story-style narrative — delivered as an in-app card to each silo member.",
+        list: [
+          "Triggered nightly as a FastAPI BackgroundTask via a scheduled job.",
+          "Aggregates all posts, reactions, and messages from every silo within the 24-hour window.",
+          "Prompts Gemini 2.5 Flash to narrate the day's highlights in a personal, family-newspaper tone with member name references.",
+          "Output is persisted as a Briefing record in PostgreSQL and rendered on the user's home feed on next login.",
+        ],
+      },
+      {
+        title: "Silo Facilitator Agent",
+        body: "An engagement intelligence agent that prevents family groups from going dark. It continuously monitors activity levels and autonomously intervenes when a silo falls dormant.",
+        list: [
+          "Periodically queries per-silo post frequency and member interaction rates from PostgreSQL.",
+          "Computes a dormancy score based on time-since-last-post, weighted by typical silo activity patterns.",
+          "When dormancy exceeds the threshold, the agent constructs a context prompt from the silo's recent topics and member names and calls Gemini to generate a relevant conversation starter.",
+          "The generated post is attributed to 'FamSilo AI' and injected directly into the silo feed, attributed clearly as AI-authored.",
+        ],
+      },
+    ],
+  },
+
   {
     title: "Anomaly Detector",
     slug: "anomaly-detector",
