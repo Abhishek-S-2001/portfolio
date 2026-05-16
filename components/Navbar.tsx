@@ -28,9 +28,10 @@ export default function Navbar() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const hash = `#${entry.target.id}`;
-            setActiveSection(hash);
-            window.history.replaceState(null, '', hash);
+            setActiveSection(`#${entry.target.id}`);
+            // NOTE: intentionally NOT calling history.replaceState here —
+            // updating the URL hash triggers a browser anchor-jump which
+            // looks like a scroll snap. The active nav highlight still works.
           }
         });
       },
