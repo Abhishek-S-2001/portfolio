@@ -100,29 +100,51 @@ function SkillsSection({ skills }: { skills: SkillsState }) {
 }
 
 // ─── EXPERIENCE ───────────────────────────────────────────────────────────────
-function ExperienceSection() {
+function ExperienceSection({
+  rewrittenBullets,
+  applyRewrites,
+}: {
+  rewrittenBullets?: Record<string, string[]>;
+  applyRewrites?: boolean;
+}) {
   return (
     <section className="mb-4">
       <SectionHeading>Professional Experience</SectionHeading>
       <div className="space-y-3.5">
-        {experiences.map((exp, i) => (
-          <div key={i}>
-            <div className="flex justify-between items-baseline">
-              <h3 className="text-[9pt] font-bold">
-                {exp.role} <span className="font-semibold text-slate-600">| {exp.company}</span>
-              </h3>
-              <span className="text-[7.5pt] font-bold uppercase tracking-wide text-slate-600 shrink-0 ml-2">{exp.date}</span>
+        {experiences.map((exp, i) => {
+          // Use AI-rewritten bullets when toggle is on and they exist for this company
+          const aibullets =
+            applyRewrites && rewrittenBullets?.[exp.company];
+          const bullets = aibullets || exp.description;
+          const isAI = Boolean(aibullets);
+
+          return (
+            <div key={i}>
+              <div className="flex justify-between items-baseline">
+                <h3 className="text-[9pt] font-bold">
+                  {exp.role}{" "}
+                  <span className="font-semibold text-slate-600">
+                    | {exp.company}
+                  </span>
+
+                </h3>
+                <span className="text-[7.5pt] font-bold uppercase tracking-wide text-slate-600 shrink-0 ml-2">
+                  {exp.date}
+                </span>
+              </div>
+              <p className="text-[7.5pt] text-slate-500 font-semibold italic mb-1">
+                {exp.location} · {exp.type}
+              </p>
+              <ul className="list-disc list-outside ml-4 space-y-0.5">
+                {bullets.map((desc, di) => (
+                  <li key={di} className="text-[8.5pt] leading-snug pl-0.5 text-slate-700">
+                    {desc}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <p className="text-[7.5pt] text-slate-500 font-semibold italic mb-1">
-              {exp.location} · {exp.type}
-            </p>
-            <ul className="list-disc list-outside ml-4 space-y-0.5">
-              {exp.description.map((desc, di) => (
-                <li key={di} className="text-[8.5pt] leading-snug pl-0.5 text-slate-700">{desc}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
@@ -263,20 +285,57 @@ interface ResumeDocumentProps {
   skills: SkillsState;
   sections: SectionsState;
   visibleProjects: Project[];
+  isAnalyzing?: boolean;
+  rewrittenBullets?: Record<string, string[]>;
+  applyRewrites?: boolean;
 }
 
-export default function ResumeDocument({ skills, sections, visibleProjects }: ResumeDocumentProps) {
+export default function ResumeDocument({
+  skills,
+  sections,
+  visibleProjects,
+  isAnalyzing,
+  rewrittenBullets,
+  applyRewrites,
+}: ResumeDocumentProps) {
   return (
     <main className="flex-1 py-8 px-4 print:py-0 print:px-0 flex justify-center items-start">
       <div
         id="resume-document"
-        className="w-[210mm] bg-white shadow-xl print:shadow-none text-slate-900"
+        className="relative w-[210mm] bg-white shadow-xl print:shadow-none text-slate-900"
         style={{ padding: "12mm 15mm" }}
       >
+        {/* ── Skeleton loader overlay ── */}
+        {isAnalyzing && (
+          <div className="absolute inset-0 z-50 rounded-sm overflow-hidden">
+            {/* Shimmer sweep */}
+            <div className="absolute inset-0 skeleton-shimmer" />
+            {/* Frosted glass + message */}
+            <div className="absolute inset-0 bg-white/70 backdrop-blur-[2px] flex flex-col items-center justify-center gap-4">
+              <div className="ai-spinner" />
+              <div className="text-center">
+                <p className="text-[11pt] font-bold text-slate-700">
+                  Gemini is optimizing your resume…
+                </p>
+                <p className="text-[8pt] text-slate-500 mt-1">
+                  Extracting keywords · Scoring ATS match · Rewriting bullets
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         <ResumeHeader />
         <SkillsSection skills={skills} />
-        {sections.experience && <ExperienceSection />}
-        {sections.projects && visibleProjects.length > 0 && <ProjectsSection visibleProjects={visibleProjects} />}
+        {sections.experience && (
+          <ExperienceSection
+            rewrittenBullets={rewrittenBullets}
+            applyRewrites={applyRewrites}
+          />
+        )}
+        {sections.projects && visibleProjects.length > 0 && (
+          <ProjectsSection visibleProjects={visibleProjects} />
+        )}
         {sections.research && <ResearchSection />}
         {sections.coding && <CodingProfilesSection />}
         {sections.education && <EducationSection />}
