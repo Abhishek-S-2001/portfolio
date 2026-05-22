@@ -4,6 +4,7 @@
 import { projects } from "@/data/projects";
 import { resumeSkillGroups, ResumeSkillGroup } from "@/data/skills";
 
+// ─── Existing types ───────────────────────────────────────────────────────────
 export type SkillsState = Record<string, string>;
 export type SectionsState = {
   experience: boolean;
@@ -21,6 +22,7 @@ const SECTION_LABELS: Record<keyof SectionsState, string> = {
   education: "Education",
 };
 
+// ─── Props ────────────────────────────────────────────────────────────────────
 interface SidebarProps {
   sections: SectionsState;
   onToggleSection: (key: keyof SectionsState) => void;
@@ -31,6 +33,7 @@ interface SidebarProps {
   onToggleProject: (title: string) => void;
 }
 
+// ─── Main Sidebar ─────────────────────────────────────────────────────────────
 export default function Sidebar({
   sections,
   onToggleSection,
@@ -44,13 +47,19 @@ export default function Sidebar({
     <aside className="print:hidden w-72 shrink-0 sticky top-24 h-[calc(100vh-6rem)] flex flex-col bg-white border-r border-slate-200 shadow-sm">
 
       {/* Scrollable area */}
-      <div className="flex-1 overflow-y-auto p-5 space-y-6">
+      <div className="flex-1 overflow-y-auto p-5 space-y-5">
 
         {/* Heading */}
         <div>
-          <h2 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-0.5">Resume Controls</h2>
-          <p className="text-[11px] text-slate-400">Changes reflect live in the preview →</p>
+          <h2 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-0.5">
+            Resume Controls
+          </h2>
+          <p className="text-[11px] text-slate-400">
+            Changes reflect live in the preview →
+          </p>
         </div>
+
+        <div className="border-t border-slate-100" />
 
         {/* ── Section Toggles ── */}
         <div>
@@ -62,16 +71,27 @@ export default function Sidebar({
           </h3>
           <div className="space-y-1">
             {(Object.keys(sections) as (keyof SectionsState)[]).map((key) => (
-              <label key={key} className="flex items-center justify-between cursor-pointer p-2 rounded-lg hover:bg-slate-50 transition-colors">
-                <span className="text-sm font-medium text-slate-700">{SECTION_LABELS[key]}</span>
+              <label
+                key={key}
+                className="flex items-center justify-between cursor-pointer p-2 rounded-lg hover:bg-slate-50 transition-colors"
+              >
+                <span className="text-sm font-medium text-slate-700">
+                  {SECTION_LABELS[key]}
+                </span>
                 <button
                   type="button"
                   role="switch"
                   aria-checked={sections[key]}
                   onClick={() => onToggleSection(key)}
-                  className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none ${sections[key] ? "bg-blue-600" : "bg-slate-200"}`}
+                  className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none ${
+                    sections[key] ? "bg-blue-600" : "bg-slate-200"
+                  }`}
                 >
-                  <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white shadow transition-transform ${sections[key] ? "translate-x-4" : "translate-x-0.5"}`} />
+                  <span
+                    className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white shadow transition-transform ${
+                      sections[key] ? "translate-x-4" : "translate-x-0.5"
+                    }`}
+                  />
                 </button>
               </label>
             ))}
@@ -129,7 +149,9 @@ export default function Sidebar({
                 <label
                   key={project.title}
                   className={`flex items-start gap-2.5 cursor-pointer p-2 rounded-lg border transition-all ${
-                    checked ? "bg-blue-50 border-blue-200" : "bg-white border-slate-200 hover:bg-slate-50"
+                    checked
+                      ? "bg-blue-50 border-blue-200"
+                      : "bg-white border-slate-200 hover:bg-slate-50"
                   }`}
                 >
                   <input
@@ -139,7 +161,11 @@ export default function Sidebar({
                     className="mt-0.5 h-3.5 w-3.5 rounded accent-blue-600 shrink-0"
                   />
                   <div className="min-w-0">
-                    <p className={`text-[11px] font-semibold leading-snug ${checked ? "text-blue-800" : "text-slate-700"}`}>
+                    <p
+                      className={`text-[11px] font-semibold leading-snug ${
+                        checked ? "text-blue-800" : "text-slate-700"
+                      }`}
+                    >
                       {project.title}
                     </p>
                     <p className="text-[10px] text-slate-400 mt-0.5 truncate">
@@ -150,7 +176,9 @@ export default function Sidebar({
               );
             })}
           </div>
-          <p className="text-[10px] text-slate-400 mt-1.5 text-right">{selectedProjects.size} selected</p>
+          <p className="text-[10px] text-slate-400 mt-1.5 text-right">
+            {selectedProjects.size} selected
+          </p>
         </div>
 
       </div>
