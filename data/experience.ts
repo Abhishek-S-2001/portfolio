@@ -8,6 +8,7 @@ export interface Experience {
   type: string;
   description: string[];
   techStack: string[];
+  certificate?: string;
 }
 
 export const experiences: Experience[] = [
@@ -22,6 +23,7 @@ export const experiences: Experience[] = [
       "Automating deployment workflows with GitHub Actions and implementing version control strategies to streamline CI/CD and ensure reliable releases."
     ],
     techStack: ["Python", "Flask", "PostgreSQL", "GitHub Actions", "CI/CD", "APIs"],
+    certificate: "/certificates/winniio-ab.webp",
   },
   {
     role: "Fullstack Developer",

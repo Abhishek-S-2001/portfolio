@@ -211,7 +211,7 @@ function ResearchSection() {
             <div className="flex justify-between items-baseline">
               <h3 className="text-[9pt] font-bold leading-snug pr-2">{item.title}</h3>
               <span className="text-[7.5pt] font-bold uppercase tracking-wide text-slate-600 shrink-0">
-                {item.status.includes("Published") ? "IEEE Xplore, 2025" : "Active Research"}
+                {item.status}
               </span>
             </div>
             <p className="text-[8.5pt] text-slate-700 leading-snug mt-0.5 mb-0.5">{item.description}</p>

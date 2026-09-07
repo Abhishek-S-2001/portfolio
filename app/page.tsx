@@ -3,6 +3,7 @@ import AmbientBackground from "@/components/AmbientBackground";
 import About from "@/sections/About";
 import Experience from "@/sections/Experience";
 import Projects from "@/sections/Projects";
+import Certifications from "@/sections/Certifications";
 import Research from "@/sections/Research";
 import BentoSkills from "@/sections/BentoSkills";
 import Education from "@/sections/Education";
@@ -17,6 +18,7 @@ export default function Home() {
       <About />
       <Experience />
       <Projects />  
+      <Certifications />
       <Research /> 
       <BentoSkills />
       <Education />  
