@@ -6,9 +6,17 @@ export interface Research {
   topics: string[];
   status: string;
   link?: string;
+  certificate?: string;
 }
 
 export const researchItems: Research[] = [
+  {
+    title: "Continuous Authentication Using Keystroke Dynamics and Kernel Density Estimation",
+    description: "A paper presenting a continuous authentication approach leveraging keystroke dynamics and Kernel Density Estimation to verify user identity in real time, enhancing session security beyond traditional login methods.",
+    topics: ["Keystroke Dynamics", "Kernel Density Estimation", "Continuous Authentication", "Behavioral Biometrics"],
+    status: "Presented at IEEE AIC 2026, SRIT Jabalpur",
+    certificate: "/certificates/aic-2026.webp",
+  },
   {
     title: "Enhancing User Authentication With Single Sign-On and Passkey Integration",
     description: "A study on combining SSO frameworks with passwordless authentication to improve security and user experience in modern applications.",
