@@ -14,13 +14,14 @@ export default function Certifications() {
       id="certifications"
       className="px-6 py-24 max-w-7xl mx-auto flex flex-col relative z-10"
     >
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-white section-heading">
-            Certifications &amp; Achievements
+          <span className="section-subtitle">&lt;Credentials /&gt;</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-3 text-white">
+            Certifications &amp; <span className="gradient-text">Achievements</span>
           </h2>
-          <p className="text-gray-500 text-base max-w-2xl">
-            Professional simulations, cloud certifications, and participation credentials that complement my hands-on experience.
+          <p className="text-gray-400 text-base max-w-2xl">
+            Professional simulations, cloud certifications, and technical credentials that validate my domain expertise.
           </p>
         </div>
 

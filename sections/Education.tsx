@@ -6,11 +6,17 @@ import { motion } from "framer-motion";
 export default function Education() {
   return (
     <section id="education" className="min-h-screen px-6 py-24 max-w-4xl mx-auto relative z-10">
-      <h2 className="text-3xl md:text-4xl font-bold mb-16 text-white section-heading">
-        Education
-      </h2>
+      <div className="text-center max-w-2xl mx-auto mb-14">
+        <span className="section-subtitle">&lt;Milestones /&gt;</span>
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-white">
+          Education &amp; <span className="gradient-text">Qualifications</span>
+        </h2>
+        <p className="text-gray-400 text-base md:text-lg">
+          My academic degree programs, computer science curriculum, and theoretical engineering background.
+        </p>
+      </div>
 
-      <div className="space-y-12 border-l border-white/[0.06] ml-3 md:ml-6">
+      <div className="space-y-12 border-l border-white/[0.08] ml-3 md:ml-6">
         {educationList.map((edu, index) => (
           <motion.div
             key={index}

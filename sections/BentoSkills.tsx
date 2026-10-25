@@ -106,12 +106,15 @@ export default function BentoSkills() {
       id="skills"
       className="min-h-screen px-6 py-24 max-w-7xl mx-auto relative z-10"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white section-heading">
-        Tech Stack
-      </h2>
-      <p className="text-gray-500 mb-12 max-w-2xl">
-        The full-stack toolkit I use to architect, build, and deploy production systems.
-      </p>
+      <div className="text-center max-w-2xl mx-auto mb-14">
+        <span className="section-subtitle">&lt;Expertise /&gt;</span>
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-white">
+          Technical <span className="gradient-text">Skills</span>
+        </h2>
+        <p className="text-gray-400 text-base md:text-lg">
+          The languages, distributed engines, databases, and cloud toolkits I leverage to architect production solutions.
+        </p>
+      </div>
 
       {/* Bento Grid */}
       <div
