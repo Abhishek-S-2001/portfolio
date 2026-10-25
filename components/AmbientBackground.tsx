@@ -106,21 +106,21 @@ export default function AmbientBackground() {
       {/* Grid overlay */}
       <div className="grid-overlay" />
 
-      {/* Gradient ambient glow spots */}
+      {/* Atmospheric Gradient Mesh Glows (IMSEC theme) */}
       <div
-        className="absolute w-[600px] h-[600px] rounded-full blur-[120px] opacity-[0.03]"
+        className="absolute w-[650px] h-[650px] rounded-full blur-[90px] pointer-events-none"
         style={{
-          top: "10%",
-          left: "20%",
-          background: "radial-gradient(circle, var(--cyan) 0%, transparent 70%)",
+          top: "-15%",
+          left: "15%",
+          background: "radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%)",
         }}
       />
       <div
-        className="absolute w-[500px] h-[500px] rounded-full blur-[120px] opacity-[0.03]"
+        className="absolute w-[550px] h-[550px] rounded-full blur-[90px] pointer-events-none"
         style={{
-          bottom: "20%",
-          right: "15%",
-          background: "radial-gradient(circle, var(--violet) 0%, transparent 70%)",
+          bottom: "-10%",
+          right: "10%",
+          background: "radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%)",
         }}
       />
 

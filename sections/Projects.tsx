@@ -24,24 +24,26 @@ export default function Projects() {
       id="projects"
       className="min-h-screen px-6 py-24 max-w-7xl mx-auto relative z-10"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white section-heading">
-        Projects
-      </h2>
-      <p className="text-gray-500 mb-10 max-w-2xl">
-        Interactive showcase of my full-stack work — hover over features to see
-        the frontend UI and backend architecture in action.
-      </p>
+      <div className="text-center max-w-2xl mx-auto mb-14">
+        <span className="section-subtitle">&lt;Portfolio /&gt;</span>
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-white">
+          Featured <span className="gradient-text">Projects</span>
+        </h2>
+        <p className="text-gray-400 text-base md:text-lg">
+          Interactive showcase of full-stack engineering work — hover over features to see frontend views and backend architecture in action.
+        </p>
+      </div>
 
       {/* Project Tabs */}
-      <div className="flex flex-wrap gap-2 mb-10">
+      <div className="flex flex-wrap justify-center gap-2.5 mb-12">
         {projects.map((project, idx) => (
           <button
             key={project.title}
             onClick={() => handleProjectChange(idx)}
-            className={`px-4 py-2 rounded-xl text-sm font-medium transition-all border ${
+            className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all cursor-pointer ${
               idx === activeProjectIdx
-                ? "bg-white/10 border-white/15 text-white"
-                : "bg-white/[0.02] border-white/5 text-gray-500 hover:text-gray-300 hover:bg-white/5"
+                ? "bg-gradient-to-r from-[#6366f1] via-[#a855f7] to-[#06b6d4] text-white shadow-lg shadow-[#6366f1]/25 border border-transparent"
+                : "bg-[#12161f] border border-white/10 text-gray-400 hover:text-white hover:bg-[#1a202c]"
             }`}
           >
             {project.title}

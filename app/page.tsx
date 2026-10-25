@@ -12,7 +12,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-   <main className="bg-[#0a0a0a] text-gray-100 min-h-screen selection:bg-cyan-accent/30 selection:text-white relative">
+   <main className="min-h-screen selection:bg-[#6366f1]/30 selection:text-white relative transition-colors duration-300">
       <AmbientBackground />
       <Hero />
       <About />

@@ -13,9 +13,15 @@ export default function Research() {
       id="research"
       className="min-h-screen px-6 py-24 max-w-7xl mx-auto flex flex-col justify-center relative z-10"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white section-heading">
-        Research &amp; Academic Work
-      </h2>
+      <div className="text-center max-w-2xl mx-auto mb-14">
+        <span className="section-subtitle">&lt;Academic /&gt;</span>
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-white">
+          Research &amp; <span className="gradient-text">Publications</span>
+        </h2>
+        <p className="text-gray-400 text-base md:text-lg">
+          Peer-reviewed papers, continuous biometric authentication models, and machine learning research.
+        </p>
+      </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {researchItems.map((item) => (

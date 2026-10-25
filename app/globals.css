@@ -6,36 +6,61 @@
    ═══════════════════════════════════════════════════════════════ */
 
 @theme {
-  --color-surface: #0a0a0a;
-  --color-surface-elevated: #111111;
-  --color-surface-glass: rgba(17, 17, 17, 0.6);
-  --color-border-subtle: rgba(255, 255, 255, 0.06);
-  --color-border-glass: rgba(255, 255, 255, 0.1);
+  --color-surface: #0a0c10;
+  --color-surface-elevated: #12161f;
+  --color-surface-glass: rgba(22, 27, 34, 0.75);
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-glass: rgba(255, 255, 255, 0.12);
 
   --color-cyan-accent: #06b6d4;
-  --color-cyan-glow: rgba(6, 182, 212, 0.5);
+  --color-cyan-glow: rgba(6, 182, 212, 0.4);
   --color-violet-accent: #8b5cf6;
-  --color-violet-glow: rgba(139, 92, 246, 0.5);
-  --color-fusion-start: #06b6d4;
-  --color-fusion-end: #8b5cf6;
+  --color-violet-glow: rgba(139, 92, 246, 0.4);
+  --color-primary-indigo: #6366f1;
+  --color-primary-glow: rgba(99, 102, 241, 0.35);
+  --color-fusion-start: #6366f1;
+  --color-fusion-end: #06b6d4;
 }
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #f0f0f0;
+  /* IMSEC Premium Dark Palette */
+  --bg-primary: #0a0c10;
+  --bg-secondary: #12161f;
+  --bg-tertiary: #1a202c;
+  --card-bg: rgba(22, 27, 34, 0.75);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-hover-border: rgba(99, 102, 241, 0.45);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --primary-light: rgba(99, 102, 241, 0.12);
+  --secondary: #06b6d4;
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #06b6d4 100%);
+  --accent-glow: rgba(99, 102, 241, 0.25);
+  --success: #10b981;
+
+  /* Backward-compatible tokens */
+  --background: #0a0c10;
+  --foreground: #f8fafc;
   --cyan: #06b6d4;
   --violet: #8b5cf6;
-  --cyan-glow: rgba(6, 182, 212, 0.5);
-  --violet-glow: rgba(139, 92, 246, 0.5);
+  --cyan-glow: rgba(6, 182, 212, 0.4);
+  --violet-glow: rgba(139, 92, 246, 0.4);
 
   /* Glass tokens */
-  --glass-bg: rgba(17, 17, 17, 0.6);
+  --glass-bg: rgba(22, 27, 34, 0.75);
   --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-border-hover: rgba(255, 255, 255, 0.15);
+  --glass-border-hover: rgba(99, 102, 241, 0.4);
+  --blur: blur(14px);
 
-  /* Font stacks — loaded via <link> in layout.tsx */
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  /* Font stacks */
+  --font-heading: 'Outfit', sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -397,15 +422,215 @@ body {
   background: linear-gradient(135deg, var(--cyan), var(--violet));
 }
 
-/* Section heading accent line */
-.section-heading::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  margin-top: 12px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--cyan), var(--violet));
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* IMSEC Section Header Subtitle Pill */
+.section-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--primary);
+  margin-bottom: 12px;
+  background: var(--primary-light);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* IMSEC Status Badge */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--success);
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+}
+
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background-color: var(--success);
+  opacity: 0.6;
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* IMSEC Theme Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  background: var(--accent-gradient);
+  color: #ffffff !important;
+  box-shadow: 0 4px 18px var(--accent-glow);
+  transition: all 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(99, 102, 241, 0.45);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--card-border);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--card-border);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--card-hover-border);
+  color: #ffffff;
+}
+
+/* IMSEC Floating Badges / Chips */
+.floating-chip {
+  position: absolute;
+  background: rgba(18, 22, 31, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 14px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  animation: float-chip 4s ease-in-out infinite;
+  z-index: 20;
+}
+
+@keyframes float-chip {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* IMSEC Profile Glass Card */
+.profile-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--card-hover-border);
+  box-shadow: 0 25px 50px rgba(99, 102, 241, 0.2);
+}
+
+/* Hero Stats Row */
+.hero-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid var(--card-border);
+}
+
+.stat-item h3 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+  line-height: 1;
+}
+
+.stat-item p {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  color: var(--text-muted);
 }
 
 /* ═══════════════════════════════════════════════════════════════

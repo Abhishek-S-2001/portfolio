@@ -13,24 +13,30 @@ export default function Experience() {
       id="experience"
       className="min-h-screen px-6 py-24 max-w-4xl mx-auto flex flex-col justify-center relative z-10"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white section-heading">
-        Professional Experience
-      </h2>
+      <div className="text-center max-w-2xl mx-auto mb-14">
+        <span className="section-subtitle">&lt;Milestones /&gt;</span>
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-white">
+          Work &amp; <span className="gradient-text">Experience</span>
+        </h2>
+        <p className="text-gray-400 text-base md:text-lg">
+          My professional software engineering history, production internships, and technical leadership.
+        </p>
+      </div>
 
       {/* Timeline Container */}
-      <div className="space-y-12 border-l-2 border-white/[0.06] ml-3 md:ml-0 pl-6 md:pl-10 relative">
+      <div className="space-y-12 border-l-2 border-white/[0.08] ml-3 md:ml-0 pl-6 md:pl-10 relative">
         {experiences.map((exp, index) => (
-          <div key={index} className="relative group">
+          <div key={index} className="relative group p-6 rounded-2xl transition-all hover:bg-[#12161f]/60 hover:border hover:border-white/10">
 
             {/* Timeline Dot with glow */}
-            <span className="absolute -left-[35px] md:-left-[51px] top-1.5 w-5 h-5 rounded-full bg-[#0a0a0a] border-4 border-white/10 group-hover:border-cyan-accent group-hover:shadow-[0_0_12px_rgba(6,182,212,0.4)] transition-all duration-300" />
+            <span className="absolute -left-[35px] md:-left-[51px] top-7 w-5 h-5 rounded-full bg-[#0a0c10] border-4 border-white/20 group-hover:border-[#6366f1] group-hover:shadow-[0_0_16px_rgba(99,102,241,0.6)] transition-all duration-300" />
 
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-2">
               <h3 className="text-xl md:text-2xl font-bold text-white">
-                {exp.role} <span className="text-gradient-fusion">@ {exp.company}</span>
+                {exp.role} <span className="gradient-text">@ {exp.company}</span>
               </h3>
-              <span className="text-sm font-bold text-gray-400 bg-white/5 px-3 py-1 rounded-full w-fit whitespace-nowrap border border-white/5 font-mono">
+              <span className="text-xs md:text-sm font-bold text-gray-300 bg-white/5 px-3 py-1 rounded-full w-fit whitespace-nowrap border border-white/10 font-mono">
                 {exp.date}
               </span>
             </div>

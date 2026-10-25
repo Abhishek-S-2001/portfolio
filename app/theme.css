@@ -1,0 +1,549 @@
+/* ═══════════════════════════════════════════════════════════════
+   LIGHT THEME DESIGN SYSTEM & COMPLETE UI OVERRIDES
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light,
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --card-bg: rgba(255, 255, 255, 0.94);
+  --card-border: rgba(15, 23, 42, 0.08);
+  --card-hover-border: rgba(99, 102, 241, 0.45);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: rgba(79, 70, 229, 0.08);
+  --secondary: #0891b2;
+  --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #0891b2 100%);
+  --accent-glow: rgba(79, 70, 229, 0.18);
+  --success: #059669;
+
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --cyan: #0891b2;
+  --violet: #7c3aed;
+  --cyan-glow: rgba(8, 145, 178, 0.2);
+  --violet-glow: rgba(124, 58, 237, 0.2);
+
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --glass-border-hover: rgba(79, 70, 229, 0.35);
+}
+
+/* Base Light Theme Setup */
+html.light,
+html.light body,
+html.light main {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PSEUDO-ELEMENTS IN LIGHT MODE
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Text Selection ::selection */
+html.light ::selection,
+html.light *::selection {
+  background-color: rgba(99, 102, 241, 0.25) !important;
+  color: #0f172a !important;
+}
+
+/* Bento Card Glow Pseudo-elements ::before & ::after */
+html.light .bento-card::before {
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(8, 145, 178, 0.3),
+    rgba(124, 58, 237, 0.2) 40%,
+    transparent 70%
+  ) !important;
+}
+
+html.light .bento-card::after {
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(8, 145, 178, 0.06),
+    transparent 60%
+  ) !important;
+}
+
+/* 3D Holographic Card Glare Pseudo-element */
+html.light .card-glare {
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(99, 102, 241, 0.12),
+    rgba(8, 145, 178, 0.06) 30%,
+    transparent 60%
+  ) !important;
+}
+
+/* Blinking terminal cursor pseudo-element ::after */
+html.light .terminal-cursor::after {
+  color: #4f46e5 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PSEUDO-CLASSES (:hover, :focus, :active, group-hover)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Hover text colors: prevent text turning white on light backgrounds */
+html.light a:hover,
+html.light button:hover {
+  color: #0f172a;
+}
+
+html.light .hover\:text-white:hover,
+html.light [class*="hover:text-white"]:hover,
+html.light [class*="hover:text-gray-200"]:hover,
+html.light [class*="hover:text-gray-300"]:hover {
+  color: #0f172a !important;
+}
+
+/* Group-hover text states */
+html.light .group:hover .group-hover\:text-white,
+html.light [class*="group"]:hover [class*="group-hover:text-white"],
+html.light [class*="group"]:hover [class*="group-hover:text-gray-200"] {
+  color: #0f172a !important;
+}
+
+html.light [class*="group"]:hover [class*="group-hover:text-cyan-accent"] {
+  color: #0891b2 !important;
+}
+
+/* Hover background colors: prevent turning dark charcoal or white/10 */
+html.light [class*="hover:bg-[#1a202c]"]:hover,
+html.light [class*="hover:bg-[#12161f]"]:hover {
+  background-color: #f1f5f9 !important;
+}
+
+html.light [class*="hover:bg-white"]:hover {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+}
+
+/* Hover border colors */
+html.light [class*="hover:border-white"]:hover {
+  border-color: rgba(15, 23, 42, 0.2) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LIGHT TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: #0f172a !important;
+}
+
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-gray-100 {
+  color: #0f172a !important;
+}
+
+html.light .text-gray-200 {
+  color: #1e293b !important;
+}
+
+html.light .text-gray-300 {
+  color: #334155 !important;
+}
+
+html.light .text-gray-400 {
+  color: #475569 !important;
+}
+
+html.light .text-gray-500 {
+  color: #64748b !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NAVBAR IN LIGHT THEME
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light nav {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light nav a {
+  color: #475569 !important;
+}
+
+html.light nav a:hover {
+  color: #0f172a !important;
+}
+
+html.light nav a.font-semibold {
+  color: #0f172a !important;
+}
+
+html.light nav button {
+  color: #475569 !important;
+}
+
+html.light nav button:hover {
+  color: #0f172a !important;
+}
+
+html.light nav .gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light .status-badge {
+  background-color: rgba(5, 150, 105, 0.1) !important;
+  color: #059669 !important;
+  border-color: rgba(5, 150, 105, 0.25) !important;
+}
+
+html.light .hero-stats-row {
+  border-top-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light .hero-stats-row .stat-item p {
+  color: #64748b !important;
+}
+
+html.light .hero-profile-container .profile-card,
+html.light .profile-card {
+  background-color: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 0 20px 45px -15px rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light .profile-card:hover {
+  border-color: rgba(99, 102, 241, 0.35) !important;
+  box-shadow: 0 25px 50px -15px rgba(99, 102, 241, 0.15) !important;
+}
+
+html.light .floating-chip {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: #0f172a !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1) !important;
+}
+
+/* Hero Social Icon Buttons */
+html.light #home a[class*="bg-white/5"] {
+  background-color: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: #64748b !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+}
+
+html.light #home a[class*="bg-white/5"]:hover {
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+html.light #home span.animate-pulse {
+  background-color: #4f46e5 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ABOUT SECTION — CORE ENGINEERING VALUES CARDS
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light #about div[class*="bg-[#1a202c]"] {
+  background-color: #f8fafc !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03) !important;
+}
+
+html.light #about div[class*="bg-[#1a202c]"]:hover {
+  background-color: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.1) !important;
+}
+
+html.light #about div[class*="bg-[#1a202c]"] h5 {
+  color: #0f172a !important;
+}
+
+html.light #about div[class*="bg-[#1a202c]"] p {
+  color: #475569 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CARDS & GLASSMORPHISM
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light .glass-card {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06) !important;
+}
+
+html.light .glass-card:hover {
+  border-color: rgba(79, 70, 229, 0.35) !important;
+  box-shadow: 0 15px 35px -10px rgba(79, 70, 229, 0.12) !important;
+}
+
+html.light .bento-card {
+  background-color: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03) !important;
+}
+
+html.light .bento-card:hover {
+  border-color: rgba(79, 70, 229, 0.35) !important;
+  box-shadow: 0 12px 30px -8px rgba(79, 70, 229, 0.1) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTONS IN LIGHT THEME
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light .btn-secondary {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05) !important;
+}
+
+html.light .btn-secondary:hover {
+  background-color: var(--primary-light) !important;
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+}
+
+html.light .btn-outline {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+}
+
+html.light .btn-outline:hover {
+  background-color: #f1f5f9 !important;
+  border-color: rgba(15, 23, 42, 0.25) !important;
+  color: #0f172a !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   EXPERIENCE & EDUCATION TIMELINES
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light #experience div[class*="hover:bg-"] {
+  border-color: transparent;
+}
+
+html.light #experience div[class*="hover:bg-"]:hover {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05);
+}
+
+html.light #experience span.bg-\[\#0a0c10\],
+html.light #experience span[class*="bg-"] {
+  background-color: #f8fafc !important;
+  border-color: rgba(15, 23, 42, 0.2) !important;
+}
+
+html.light #experience .border-l-2,
+html.light #education .border-l {
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROJECTS SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light #projects button[class*="bg-[#12161f]"],
+html.light #projects button:not([class*="from-"]) {
+  background-color: #ffffff !important;
+  color: #475569 !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04) !important;
+}
+
+html.light #projects button:not([class*="from-"]):hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.2) !important;
+}
+
+html.light .feature-item:hover {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+  border-left-color: rgba(15, 23, 42, 0.2) !important;
+}
+
+html.light .feature-item--active {
+  background-color: rgba(8, 145, 178, 0.08) !important;
+  border-left-color: var(--cyan) !important;
+}
+
+html.light .feature-item--backend.feature-item--active {
+  background-color: rgba(124, 58, 237, 0.08) !important;
+  border-left-color: var(--violet) !important;
+}
+
+html.light .device-frame {
+  background-color: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light .device-titlebar {
+  background-color: #f8fafc !important;
+  border-bottom-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light .device-url-bar {
+  background-color: #ffffff !important;
+  color: #64748b !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SKILLS / BENTO SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light #skills span[class*="bg-white/"] {
+  background-color: #f8fafc !important;
+  color: #334155 !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light #skills span[class*="bg-white/"]:hover {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(99, 102, 241, 0.35) !important;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1) !important;
+}
+
+html.light #skills div[class*="bg-white/5"] {
+  background-color: #f1f5f9 !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CERTIFICATIONS SECTION & MODAL
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light #certifications button[class*="bg-white/15"] {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06) !important;
+}
+
+html.light #certifications button:not([class*="bg-white/15"]) {
+  color: #64748b !important;
+}
+
+html.light #certifications button:not([class*="bg-white/15"]):hover {
+  color: #0f172a !important;
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+
+html.light .cert-grid-card {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+html.light .cert-grid-card:hover {
+  border-color: rgba(8, 145, 178, 0.4) !important;
+  box-shadow: 0 10px 30px -10px rgba(8, 145, 178, 0.15) !important;
+}
+
+html.light .cert-modal-content {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+html.light .cert-modal-header {
+  background-color: #f8fafc !important;
+  border-bottom-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light .cert-modal-btn {
+  color: rgba(15, 23, 42, 0.6) !important;
+}
+
+html.light .cert-modal-btn:hover {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+  color: #0f172a !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTACT SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light #contact a:hover {
+  border-color: rgba(99, 102, 241, 0.35) !important;
+  box-shadow: 0 12px 30px -5px rgba(99, 102, 241, 0.1) !important;
+}
+
+html.light #contact .group:hover .group-hover\:bg-cyan-accent\/10 {
+  background-color: rgba(8, 145, 178, 0.1) !important;
+}
+
+html.light #contact .group:hover .group-hover\:border-cyan-accent\/20 {
+  border-color: rgba(8, 145, 178, 0.25) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BACKGROUND GRIDS & AMBIENT ICONS
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light .grid-overlay {
+  opacity: 0.6 !important;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px) !important;
+}
+
+html.light .ambient-icon {
+  opacity: 0.15 !important;
+  color: rgba(15, 23, 42, 0.7) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER IN LIGHT THEME
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light footer {
+  background-color: #f1f5f9 !important;
+  border-top-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BADGES AND TAGS
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light span.bg-white\/5,
+html.light div.bg-white\/5,
+html.light span[class*="bg-white/"] {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+  color: #334155 !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBARS
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.2) !important;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.3) !important;
+}
