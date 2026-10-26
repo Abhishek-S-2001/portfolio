@@ -26,10 +26,10 @@ export default function Experience() {
       {/* Timeline Container */}
       <div className="space-y-12 border-l-2 border-white/[0.08] ml-3 md:ml-0 pl-6 md:pl-10 relative">
         {experiences.map((exp, index) => (
-          <div key={index} className="relative group p-6 rounded-2xl transition-all hover:bg-[#12161f]/60 hover:border hover:border-white/10">
+          <div key={index} className="relative group p-6 rounded-2xl transition-all hover:bg-[#131830]/60 hover:border hover:border-white/10">
 
             {/* Timeline Dot with glow */}
-            <span className="absolute -left-[35px] md:-left-[51px] top-7 w-5 h-5 rounded-full bg-[#0a0c10] border-4 border-white/20 group-hover:border-[#6366f1] group-hover:shadow-[0_0_16px_rgba(99,102,241,0.6)] transition-all duration-300" />
+            <span className="absolute -left-[35px] md:-left-[51px] top-7 w-5 h-5 rounded-full bg-[#0c0f1d] border-4 border-white/20 group-hover:border-[#6366f1] group-hover:shadow-[0_0_16px_rgba(99,102,241,0.6)] transition-all duration-300" />
 
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-2">

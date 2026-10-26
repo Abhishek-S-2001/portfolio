@@ -62,7 +62,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-5 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl z-50 bg-[#12161f]/80 backdrop-blur-xl border border-white/[0.08] shadow-2xl shadow-black/40 rounded-2xl transition-all print:hidden">
+    <nav className="fixed top-5 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl z-50 bg-[#131830]/80 backdrop-blur-xl border border-white/[0.08] shadow-2xl shadow-black/40 rounded-2xl transition-all print:hidden">
       <div className="px-5 md:px-6 py-3 flex justify-between items-center">
 
         {/* IMSEC-style Brand Logo */}

@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#0a0c10" />
+        <meta name="theme-color" content="#0c0f1d" />
         {/* Google Fonts: Outfit (headings), Inter (body), JetBrains Mono (code/mono) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

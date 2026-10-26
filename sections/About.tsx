@@ -77,7 +77,7 @@ export default function About() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
               
               {/* Highlight 1 */}
-              <div className="p-4 rounded-xl bg-[#1a202c]/60 border border-white/5 hover:border-[#6366f1]/40 hover:bg-[#1a202c]/90 transition-all flex flex-col justify-between">
+              <div className="p-4 rounded-xl bg-[#131830]/60 border border-white/5 hover:border-[#6366f1]/40 hover:bg-[#1a203e]/90 transition-all flex flex-col justify-between">
                 <div>
                   <div className="w-9 h-9 rounded-lg bg-[#6366f1]/15 text-[#6366f1] flex items-center justify-center mb-3">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -92,7 +92,7 @@ export default function About() {
               </div>
 
               {/* Highlight 2 */}
-              <div className="p-4 rounded-xl bg-[#1a202c]/60 border border-white/5 hover:border-[#06b6d4]/40 hover:bg-[#1a202c]/90 transition-all flex flex-col justify-between">
+              <div className="p-4 rounded-xl bg-[#131830]/60 border border-white/5 hover:border-[#06b6d4]/40 hover:bg-[#1a203e]/90 transition-all flex flex-col justify-between">
                 <div>
                   <div className="w-9 h-9 rounded-lg bg-[#06b6d4]/15 text-[#06b6d4] flex items-center justify-center mb-3">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,7 +107,7 @@ export default function About() {
               </div>
 
               {/* Highlight 3 */}
-              <div className="p-4 rounded-xl bg-[#1a202c]/60 border border-white/5 hover:border-[#10b981]/40 hover:bg-[#1a202c]/90 transition-all flex flex-col justify-between">
+              <div className="p-4 rounded-xl bg-[#131830]/60 border border-white/5 hover:border-[#10b981]/40 hover:bg-[#1a203e]/90 transition-all flex flex-col justify-between">
                 <div>
                   <div className="w-9 h-9 rounded-lg bg-[#10b981]/15 text-[#10b981] flex items-center justify-center mb-3">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -122,7 +122,7 @@ export default function About() {
               </div>
 
               {/* Highlight 4 */}
-              <div className="p-4 rounded-xl bg-[#1a202c]/60 border border-white/5 hover:border-[#a855f7]/40 hover:bg-[#1a202c]/90 transition-all flex flex-col justify-between">
+              <div className="p-4 rounded-xl bg-[#131830]/60 border border-white/5 hover:border-[#a855f7]/40 hover:bg-[#1a203e]/90 transition-all flex flex-col justify-between">
                 <div>
                   <div className="w-9 h-9 rounded-lg bg-[#a855f7]/15 text-[#a855f7] flex items-center justify-center mb-3">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -106,21 +106,50 @@ export default function AmbientBackground() {
       {/* Grid overlay */}
       <div className="grid-overlay" />
 
-      {/* Atmospheric Gradient Mesh Glows (IMSEC theme) */}
+      {/* Atmospheric Gradient Mesh Glows — Calibrated to Dual-Tone Studio Lighting */}
+      {/* Top-Left Cyan Ambient Halo (matches left rim light) */}
       <div
-        className="absolute w-[650px] h-[650px] rounded-full blur-[90px] pointer-events-none"
+        className="absolute w-[720px] h-[720px] rounded-full blur-[110px] pointer-events-none"
         style={{
           top: "-15%",
-          left: "15%",
-          background: "radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%)",
+          left: "2%",
+          background: "radial-gradient(circle, rgba(6, 182, 212, 0.22) 0%, rgba(56, 189, 248, 0.08) 45%, transparent 70%)",
         }}
       />
+      {/* Top-Right & Hero Violet/Lavender Ambient Halo (matches photo backdrop & right rim light) */}
       <div
-        className="absolute w-[550px] h-[550px] rounded-full blur-[90px] pointer-events-none"
+        className="absolute w-[780px] h-[780px] rounded-full blur-[120px] pointer-events-none"
         style={{
-          bottom: "-10%",
-          right: "10%",
-          background: "radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%)",
+          top: "-10%",
+          right: "2%",
+          background: "radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(168, 85, 247, 0.10) 45%, transparent 70%)",
+        }}
+      />
+      {/* Mid-canvas Indigo Depth Glow */}
+      <div
+        className="absolute w-[650px] h-[650px] rounded-full blur-[130px] pointer-events-none"
+        style={{
+          top: "40%",
+          left: "30%",
+          background: "radial-gradient(circle, rgba(99, 102, 241, 0.14) 0%, transparent 65%)",
+        }}
+      />
+      {/* Bottom-Right Cyan Accent */}
+      <div
+        className="absolute w-[600px] h-[600px] rounded-full blur-[100px] pointer-events-none"
+        style={{
+          bottom: "-8%",
+          right: "8%",
+          background: "radial-gradient(circle, rgba(6, 182, 212, 0.16) 0%, transparent 70%)",
+        }}
+      />
+      {/* Bottom-Left Twilight Violet Accent */}
+      <div
+        className="absolute w-[560px] h-[560px] rounded-full blur-[110px] pointer-events-none"
+        style={{
+          bottom: "12%",
+          left: "-5%",
+          background: "radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, transparent 70%)",
         }}
       />
 
