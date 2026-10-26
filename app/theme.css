@@ -40,6 +40,7 @@ html.light,
 html.light body,
 html.light main {
   background-color: #f8fafc !important;
+  background-image: none !important;
   color: #0f172a !important;
 }
 
@@ -547,3 +548,16 @@ html.light ::-webkit-scrollbar-thumb {
 html.light ::-webkit-scrollbar-thumb:hover {
   background: rgba(15, 23, 42, 0.3) !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   3D WEBGL CANVAS POINTER-EVENTS PASSTHROUGH
+   Ensures clicks, hover, and selection pass directly to the page
+   ═══════════════════════════════════════════════════════════════ */
+
+.webgl-canvas-container,
+.webgl-canvas-container div,
+.webgl-canvas-container canvas {
+  pointer-events: none !important;
+  touch-action: auto !important;
+}
+

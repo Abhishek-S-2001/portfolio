@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import AmbientBackground from "@/components/AmbientBackground";
+import VirtualGuideCompanion from "@/components/3d/VirtualGuideCompanion";
 import About from "@/sections/About";
 import Experience from "@/sections/Experience";
 import Projects from "@/sections/Projects";
@@ -14,6 +15,7 @@ export default function Home() {
   return (
    <main className="min-h-screen selection:bg-[#6366f1]/30 selection:text-white relative transition-colors duration-300">
       <AmbientBackground />
+      <VirtualGuideCompanion />
       <Hero />
       <About />
       <Experience />

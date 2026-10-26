@@ -43,7 +43,7 @@ export default function Projects() {
             className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all cursor-pointer ${
               idx === activeProjectIdx
                 ? "bg-gradient-to-r from-[#6366f1] via-[#a855f7] to-[#06b6d4] text-white shadow-lg shadow-[#6366f1]/25 border border-transparent"
-                : "bg-[#12161f] border border-white/10 text-gray-400 hover:text-white hover:bg-[#1a202c]"
+                : "bg-[#131830] border border-white/10 text-gray-400 hover:text-white hover:bg-[#1a203e]"
             }`}
           >
             {project.title}
